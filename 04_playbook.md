@@ -78,3 +78,42 @@ Creating the dummy file → changed
 - rescued=0: Tasks that were part of a rescue block, which is triggered if a failure occurs in a preceding task.
 
 - ignored=0: Tasks that failed but were ignored due to the ignore_errors: yes option in the playbook.
+
+## 2. How to Deal with and servers.
+
+- Now we are going to run two commands on each two servers.
+
+- inventory file.
+
+```yaml
+webserver1 ansible_host=18.221.38.126 ansible_user=ubuntu ansible_ssh_private_key_file=/home/goldy/Downloads/goldy.pem
+webserver2 ansible_host=18.221.38.127 ansible_user=ubuntu ansible_ssh_private_key_file=/home/goldy/Downloads/goldy.pem
+
+[webservers]
+webserver1
+webserver2
+```
+
+- playbook.
+
+```yaml
+- name: this is our first play1.
+  hosts: webserver1
+  tasks:
+    - name: create a dummy file on webserver1
+      command: touch /home/ubuntu/ansible_web1.txt
+
+- name: this is our first play2.
+  hosts: webserver2
+  tasks:
+    - name: create a dummy file on webserver2
+      command: touch /home/ubuntu/ansible_web2.txt
+
+- name: this is our first play3.
+  hosts: webservers
+  tasks:
+    - name: create a dummy folder on both webservers
+      command: mkdir /home/ubuntu/webservers
+```
+
+- Now run this play book then verify all the things are runned ok.
