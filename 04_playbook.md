@@ -49,7 +49,7 @@ webserver1                 : ok=2    changed=1    unreachable=0    failed=0    s
 
 - Let me explain all the things in the output of this command.
 
-- `PLAY [this is our first play.] ` Is the name of our playbook.
+- `PLAY [this is our first play.] ` Is the name of our play.
 
 - `TASK [Gathering Facts] ` This is the first default task. It collects system information (called facts) about the target host(s), such as OS, IP addresses, memory, etc. This information can be used in subsequent tasks. `ok:` Indicates this task completed successfully without making changes. Facts are simply gathered, so no changes are made.
 
