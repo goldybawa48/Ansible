@@ -34,7 +34,7 @@ packages:
 fatal: [webserver1]: FAILED! => {"changed": false, "msg": "This module does not currently support using glob patterns, found '[' in service name: ['package1', 'package2']"}
 ```
 
-- Then you can yous items.
+- Then you can use items.
 
 ```yaml
 - name: learning loop of ansible
